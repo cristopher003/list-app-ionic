@@ -1,0 +1,14 @@
+<ion-list>
+  <ion-item *ngFor="let task of tasks; let i = index">
+    <ion-label>
+      <input *ngIf="editingIndex === i" [(ngModel)]="taskToEdit" (blur)="updateTask()" />
+      <span *ngIf="editingIndex !== i">{{ task }}</span>
+    </ion-label>
+    <ion-button *ngIf="editingIndex !== i" (click)="editTask(i)" fill="outline" slot="end">
+      Editar
+    </ion-button>
+    <ion-button *ngIf="editingIndex !== i" (click)="deleteTask(i)" fill="outline" color="danger" slot="end">
+      Eliminar
+    </ion-button>
+  </ion-item>
+</ion-list>
